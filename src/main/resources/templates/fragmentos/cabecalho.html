@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head > 
+        
+    </head>
+<body>
+    <div th:fragment="cabecalho">
+        <style>
+           .carousel-item img {
+    width: 150%;
+    height: 350px;
+    object-fit: cover;       
+            }
+        </style>
+        <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="imagens/cabecalho/sovemquetuganha.webp" class="d-block w-100" alt="imagem 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="imagens/cabecalho/sovem.webp" class="d-block w-100" alt="Imagem 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="imagens/cabecalho/remedios.webp" class="d-block w-100" alt="Imagem 3">
+                </div>
+                <div class="carousel-item">
+                    <img src="imagens/cabecalho/promoracao.webp" class="d-block w-100" alt="Imagem 4">
+                </div>
+                <div class="carousel-item">
+                    <img src="imagens/cabecalho/kithigiene.webp" class="d-block w-100" alt="Imagem 5">
+                </div>
+                <div class="carousel-item">
+                    <img src="imagens/cabecalho/raca.webp" class="d-block w-100" alt="Imagem 6">
+                </div>
+                <div class="carousel-item">
+                    <img src="imagens/cabecalho/maismedica.webp" class="d-block w-100" alt="Imagem 7">
+                </div>
+                <div class="carousel-item">
+                    <img src="imagens/cabecalho/encontre.webp" class="d-block w-100" alt="Imagem 8">
+                </div>
+                <div class="carousel-item">
+                    <img src="imagens/cabecalho/brinquedos.webp" class="d-block w-100" alt="Imagem 9">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    </div>
+</body>
+</html>
