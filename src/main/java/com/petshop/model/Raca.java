@@ -1,8 +1,11 @@
 package com.petshop.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -24,28 +27,8 @@ public class Raca {
     @JoinColumn(name = "especies_id")
     private Especie especie;
 
-    @OneToMany(mappedBy = "raca")
-    private List<Animal> animal;
-
-    // Construtores
-    public Raca() {
-    }
-
-    public Especie getEspecie() {
-        return especie;
-    }
-
-    public void setEspecie(Especie especie) {
-        this.especie = especie;
-    }
-
-    public List<Animal> getAnimal() {
-        return animal;
-    }
-
-    public void setAnimal(List<Animal> animal) {
-        this.animal = animal;
-    }
+    @OneToMany(mappedBy = "raca", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    private List<Animal> animal = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -63,10 +46,30 @@ public class Raca {
         this.nome = nome;
     }
 
-    public Raca(Long id, String nome) {
+    public Especie getEspecie() {
+        return especie;
+    }
+
+    public void setEspecie(Especie especie) {
+        this.especie = especie;
+    }
+
+    public Animal getAnimal() {
+        return animal;
+    }
+
+    public void setAnimal(Animal animal) {
+        this.animal = animal;
+    }
+
+    public Raca() {
+    }
+
+    public Raca(Long id, String nome, Especie especie, Animal animal) {
         this.id = id;
         this.nome = nome;
-
+        this.especie = especie;
+        this.animal = animal;
     }
 
 }
