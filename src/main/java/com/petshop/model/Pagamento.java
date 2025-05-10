@@ -16,13 +16,10 @@ public class Pagamento {
     @JoinColumn(name = "fk_forma_pagamento_id")
     private FormaDePagamento formaDePagamento;
 
-    @ManyToOne
-    @JoinColumn(name = "fk_vendedores_id")
-    private Vendedor vendedor;
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private Double valor_pago;
 
     public Double getValor_pago() {
@@ -47,14 +44,6 @@ public class Pagamento {
 
     public void setFormaDePagamento(FormaDePagamento formaDePagamento) {
         this.formaDePagamento = formaDePagamento;
-    }
-
-    public Vendedor getVendedor() {
-        return vendedor;
-    }
-
-    public void setVendedor(Vendedor vendedor) {
-        this.vendedor = vendedor;
     }
 
 }

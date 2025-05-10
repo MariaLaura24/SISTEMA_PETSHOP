@@ -14,6 +14,7 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "formas_de_pagamento")
 public class FormaDePagamento {
+
     @OneToMany
     @JoinColumn(name = "fk_pagamentos_id")
     private List<Pagamento> pagamento = new ArrayList<>();
@@ -21,6 +22,7 @@ public class FormaDePagamento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String descricao;
 
     public String getDescricao() {

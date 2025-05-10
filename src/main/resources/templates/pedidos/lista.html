@@ -36,6 +36,8 @@
                 <td>
                     <a th:href="@{'/pedidos/editar/' + ${pedido.id}}" class="btn btn-warning btn-sm">Editar</a>
                     <a th:href="@{'/pedidos/deletar/' + ${pedido.id}}" class="btn btn-danger btn-sm" onclick="return confirm('Deseja realmente excluir este pedido?');">Excluir</a>
+                    <a th:href="@{'/pagamentos/pedido/' + ${pedido.id}}" class="btn btn-success btn-sm" >Pagar</a>
+                   
                 </td>
             </tr>
         </tbody>

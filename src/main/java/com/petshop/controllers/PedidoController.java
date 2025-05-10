@@ -16,8 +16,6 @@ public class PedidoController {
 
     @Autowired
     private PedidoService pedidoService;
-    
-    
 
     @GetMapping("/pedidos")
     public String listarPedidos(Model model) {
@@ -30,22 +28,22 @@ public class PedidoController {
         return "pedidos/cadastro";
     }
 
-
     @GetMapping("/pedidos/editar/{id}")
     public String editarPedido(@PathVariable Long id, Model model) {
-        Pedido pedido = pedidoService.buscarPorId(id).orElseThrow(() -> new IllegalArgumentException("ID pedido inválido: " + id));
+        Pedido pedido = pedidoService.buscarPorId(id);
         model.addAttribute("pedidos", pedido);
         return "pedidos/editar";
     }
 
     @PostMapping("/pedidos/editar/{id}")
     public String atualizarPedido(@PathVariable Long id, @ModelAttribute Pedido pedidoAtualizado) {
-        Pedido pedido = pedidoService.buscarPorId(id).orElseThrow(() -> new IllegalArgumentException("ID pedido inválido: " + id));
+        Pedido pedido = pedidoService.buscarPorId(id);
+
         pedido.setId(pedidoAtualizado.getId());
         pedido.setDataHora(pedidoAtualizado.getDataHora());
         pedidoService.salvarPedido(pedido);
         return "redirect:/pedidos";
-    } 
+    }
 
     @GetMapping("/pedidos/deletar/{id}")
     public String deletarpedido(@PathVariable Long id) {
@@ -53,15 +51,12 @@ public class PedidoController {
         return "redirect:/pedidos";
     }
 
-    // Podemos salvar sem a foto por isso verificamos se a foto veio vazia com o método isEmpty()
+    // Podemos salvar sem a foto por isso verificamos se a foto veio vazia com o
+    // método isEmpty()
     @PostMapping("/pedidos")
     public String salvarpedido(@ModelAttribute Pedido pedido) {
         pedidoService.salvarPedido(pedido);
         return "redirect:/pedidos";
     }
-   
-   
-
-   
 
 }

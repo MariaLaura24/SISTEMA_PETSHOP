@@ -1,4 +1,5 @@
 package com.petshop.services;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -8,7 +9,6 @@ import org.springframework.stereotype.Service;
 import com.petshop.model.Pagamento;
 import com.petshop.repository.PagamentoRepository;
 
-
 @Service
 public class PagamentoService {
 
@@ -16,7 +16,7 @@ public class PagamentoService {
     private PagamentoRepository pagamentoRepository;
 
     // Listar todos os pagamentos
-    public List<Pagamento> buscarTodosOsPagamento() {
+    public List<Pagamento> buscarTodosOsPagamentos() {
         return pagamentoRepository.findAll();
     }
 
@@ -37,12 +37,9 @@ public class PagamentoService {
     // Editar pagamento (atualizar suas informações)
     public Pagamento atualizarPagamento(Pagamento pagamento) {
         if (pagamento.getId() != null) {
-            return pagamentoRepository.save(pagamento);  // aqui chamamos o método save acima
+            return pagamentoRepository.save(pagamento); // aqui chamamos o método save acima
         }
         return null;
     }
 
-    public Object buscarTodosOsPagamentos() {
-        return pagamentoRepository.findAll();
-    }
 }
