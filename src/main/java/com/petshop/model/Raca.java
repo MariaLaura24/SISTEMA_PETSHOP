@@ -54,18 +54,18 @@ public class Raca {
         this.especie = especie;
     }
 
-    public Animal getAnimal() {
+    public List<Animal> getAnimal() {
         return animal;
     }
 
-    public void setAnimal(Animal animal) {
+    public void setAnimal(List<Animal> animal) {
         this.animal = animal;
     }
 
     public Raca() {
     }
 
-    public Raca(Long id, String nome, Especie especie, Animal animal) {
+    public Raca(Long id, String nome, Especie especie, List<Animal> animal) {
         this.id = id;
         this.nome = nome;
         this.especie = especie;
