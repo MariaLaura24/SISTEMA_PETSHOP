@@ -27,7 +27,11 @@
       </style>
 </head>
 <body>
-    <div th:replace="fragmentos/menu-lateral :: sidebar"></div>
+  <div th:replace="fragmentos/menu-lateral :: sidebar"></div>
+  <div class="content">
+      <div th:replace="fragmentos/cabecalho :: cabecalho"></div>
+      </div>
+    <div class="container content mt-5">
   <div class="centralizado">
 <div class="container mt-5">
     <h2>Lista de Clientes</h2>

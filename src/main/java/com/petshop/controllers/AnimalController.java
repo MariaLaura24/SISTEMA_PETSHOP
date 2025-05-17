@@ -18,12 +18,16 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.petshop.model.Animal;
 import com.petshop.services.AnimalService;
+import com.petshop.services.RacaService;
 
 @Controller
 public class AnimalController {
 
     @Autowired
     private AnimalService animalService;
+
+    @Autowired
+    private RacaService racasService;
 
     @Value("${imagens.animais.path}")
     private String imagesPath;
@@ -35,7 +39,9 @@ public class AnimalController {
     }
 
     @GetMapping("/animais/cadastro")
-    public String exibirFormularioCadastro() {
+    public String exibirFormularioCadastro(Model model) {
+        model.addAttribute("dona", "Laura");
+        model.addAttribute("racas", racasService.buscarTodasAsRacas());
         return "animais/cadastro";
     }
 

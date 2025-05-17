@@ -8,6 +8,10 @@
 </head>
 <body>
     <div th:replace="fragmentos/menu-lateral :: sidebar"></div>
+    <div class="content">
+        <div th:replace="fragmentos/cabecalho :: cabecalho"></div>
+        </div>
+    <div class="container content mt-5">
     <div class="container content mt-5">
     <h2>Cadastro de Pagamentos</h2>
     <form th:action="@{'/pagamento/editar/' + ${pagamento.id}}"  method="post">

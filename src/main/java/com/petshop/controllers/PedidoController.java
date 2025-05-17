@@ -31,14 +31,13 @@ public class PedidoController {
     @GetMapping("/pedidos/editar/{id}")
     public String editarPedido(@PathVariable Long id, Model model) {
         Pedido pedido = pedidoService.buscarPorId(id);
-        model.addAttribute("pedidos", pedido);
+        model.addAttribute("pedidos", pedidoService.buscarTodosOsPedidos());
         return "pedidos/editar";
     }
 
     @PostMapping("/pedidos/editar/{id}")
     public String atualizarPedido(@PathVariable Long id, @ModelAttribute Pedido pedidoAtualizado) {
         Pedido pedido = pedidoService.buscarPorId(id);
-
         pedido.setId(pedidoAtualizado.getId());
         pedido.setDataHora(pedidoAtualizado.getDataHora());
         pedidoService.salvarPedido(pedido);

@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.petshop.model.Especie;
 import com.petshop.services.EspecieService;
 
-
-
 @Controller
 public class EspecieController {
 
@@ -25,27 +23,29 @@ public class EspecieController {
         return "especies/lista";
     }
 
+    @GetMapping("/especies/novocadastro")
+    public String cadastrarEspecie(Model model) {
+        model.addAttribute("especies", especieService.buscarTodosOsEspecies());
+        return "especies/cadastro";
+    }
+
     @GetMapping("/especies/realizar")
     public String exibirFormularioRealizarEspecie() {
         return "especies/realizar";
     }
 
-    @PostMapping("/especies")
-    public String salvarEspecie(Especie especie) {
-        especieService.salvarEspecie(especie);
-        return "redirect:/especies";
-    }
-
     @GetMapping("/especies/editar/{id}")
     public String editarEspecie(@PathVariable Long id, Model model) {
-        Especie especie = especieService.buscarPorId(id).orElseThrow(() -> new IllegalArgumentException("ID inválido: " + id));
-        model.addAttribute("especies", especie);
+        Especie especie = especieService.buscarPorId(id)
+                .orElseThrow(() -> new IllegalArgumentException("ID inválido: " + id));
+        model.addAttribute("especie", especie);
         return "especies/editar";
     }
 
     @PostMapping("/especies/editar/{id}")
     public String atualizarEspecie(@PathVariable Long id, @ModelAttribute Especie especieAtualizada) {
-        Especie especie = especieService.buscarPorId(id).orElseThrow(() -> new IllegalArgumentException("ID inválido: " + id));
+        Especie especie = especieService.buscarPorId(id)
+                .orElseThrow(() -> new IllegalArgumentException("ID inválido: " + id));
         especie.setId(id);
         especieAtualizada.getId();
         especie.setNome(null);
@@ -60,6 +60,3 @@ public class EspecieController {
         return "redirect:/especies";
     }
 }
-
-
-

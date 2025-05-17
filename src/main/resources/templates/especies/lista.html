@@ -21,19 +21,19 @@
             </tr>
             </thead>
             <tbody>
-                <tr th:each="especie : ${especie}">
+                <tr th:each="especie : ${especies}">
                     <td th:text="${especie.nome}"></td>
                     
                     <td class="text-center">
                         <div class="d-inline-flex">
-                            <a th:href="@{'/especie/editar/' + ${especie.id}}" class="btn btn-warning btn-sm me-2">Editar</a>
-                            <a th:href="@{'/especie/deletar/' + ${especie.id}}" class="btn btn-danger btn-sm" onclick="return confirm('Deseja realmente excluir esta Espécie?');">Excluir</a>
+                            <a th:href="@{'/especies/editar/' + ${especie.id}}" class="btn btn-warning btn-sm me-2">Editar</a>
+                            <a th:href="@{'/especies/deletar/' + ${especie.id}}" class="btn btn-danger btn-sm" onclick="return confirm('Deseja realmente excluir esta Espécie?');">Excluir</a>
                         </div>
                     </td>
                 </tr>
             </tbody>
         </table>
-        <a href="/especie/cadastro" class="btn btn-primary">Nova Espécie</a>
+        <a href="/especies/novocadastro" class="btn btn-primary">Nova Espécie</a>
         <a th:href="@{'/#'}" class="btn btn-primary">Início</a>
     </div>
     <div class="content">

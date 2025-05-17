@@ -93,4 +93,20 @@
 .vtex-rich-text-0-x-heading--home-title {
   font-weight: bold; /* negrito */
 }
-
+#imagem-preview {
+  max-width: 100%;
+  border-radius: 8px;
+  border: 2px solid #ddd;
+}
+.imagem-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  border-left: 2px solid #ddd;
+  padding-left: 20px;
+}
+.form-container {
+  max-width: 500px;
+  margin: auto;
+}

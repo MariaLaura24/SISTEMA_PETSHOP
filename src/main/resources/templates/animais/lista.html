@@ -28,6 +28,10 @@
 </head>
 <body>
     <div th:replace="fragmentos/menu-lateral :: sidebar"></div>
+    <div class="content">
+        <div th:replace="fragmentos/cabecalho :: cabecalho"></div>
+        </div>
+    <div class="container content mt-5">
   <div class="centralizado">
 <div class="container mt-5">
     <h2>Lista de Animais</h2>
@@ -43,7 +47,7 @@
         <tbody>
             <tr th:each="animal : ${animais}">
                 <td th:text="${animal.nome}"></td>
-                <td th:text="${animal.raca}"></td>
+                <td th:text="${animal.raca.nome}"></td>
                 <td th:text="${animal.idade}"></td>
                 <td>
                     <a th:href="@{'/animais/editar/' + ${animal.id}}" class="btn btn-warning btn-sm">Editar</a>
